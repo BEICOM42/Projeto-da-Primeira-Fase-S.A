@@ -2,8 +2,6 @@
 
 *
 
-
-
 /* Reset básico (tira margens e paddings padrões do navegador) */
 * {
   margin: 0;
@@ -24,11 +22,10 @@ body {
 
 /* Contêiner */
 .container {
-  width: 95%; 
-  height: 98%;           /* largura relativa */
-  max-width: 2000%;      /* limite máximo */
+  width: 98%; 
+  height: 95%;           /* largura relativa */
+  max-width: 100%;     /* limite máximo mais razoável */
   background: #fff;      /* fundo branco */
-  padding: 30px;         /* espaço interno */
   border-radius: 12px;   /* cantos arredondados */
   box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* sombra */
   text-align: center;    /* centraliza o texto */
@@ -71,14 +68,14 @@ nav a {
   width: 100px;
   padding: 5px 10px;
   border-radius: 10px;
+  color: white;
   
 }
 
-nav a:hover {
-  background: #B2B7D8;
+* nav a:hover {
   color: white;
   height: 60px;
-}
+} 
 
 .user-icon img {
   width: 40px;
@@ -90,13 +87,13 @@ nav a:hover {
 main {
   display: flex;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 18%;
   height: auto;
 }
 
 .cards {
   display: flex;
-  gap: 30px;
+  gap: 120px;
 }
 
 .card {
@@ -104,7 +101,7 @@ main {
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
-  width: 220px;
+  width: 300px; /* Increased width */
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
@@ -125,12 +122,11 @@ main {
   font-size: 1.2rem;
   color: #2c3e50;
 }
-                           /* parte do menuCima */
 .menuCima {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 100px;
   padding: 10px;
   border-radius: 10px;
 }
@@ -144,9 +140,69 @@ main {
   transition: 0.3s;
 }
 
-.opcaoCima a {
-  color: white;
-  text-decoration: none;
+.opcaoCima:hover {
+  background: #7aa9ff;
 }
 
+.opcaoCima:active {
+  transform: scale(0.95);
+}
+/* parte do menuCima */
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+.card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #7AA9FF;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+.card button:hover {
+  background: #5a8de0;
+}
+.card button:active {
+  transform: scale(0.95);
+}
+/* Responsividade */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+/* nav a:hover {
+  background: #B2B7D8;
+  color: white;
+  height: 60px;
+}
 
+/* Estilo para mensagens flutuantes */
+#mensagem-flutuante {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Estilo para opções do menu superior quando selecionadas */
+.opcaoCima.selecionado {
+  background: #7AA9FF !important;
+  color: white !important;
+}
